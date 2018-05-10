@@ -10,6 +10,7 @@ if (location.href.indexOf('login.html') === -1) {
     }
   })
 }
+
 $(function () {
   NProgress.configure({showSpinner: false});
   $(document).ajaxStart(function () {
@@ -18,11 +19,9 @@ $(function () {
   $(document).ajaxStop(function () {
     NProgress.done();
   });
-  
   $('.lt_aside .category').click(function () {
     $('.lt_aside .child').stop().slideToggle();
   });
-  
   $('.icon_menu').click(function () {
     $('.lt_aside,.lt_main,.lt_topbar').toggleClass('hidemenu');
   });
