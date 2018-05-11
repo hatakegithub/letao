@@ -2,6 +2,10 @@
   background-color: #222D32;
 }
 
+.mb_20 {
+  margin-bottom: 20px;
+}
+
 .mt_150 {
   margin-top: 150px;
 }
@@ -140,4 +144,10 @@ a:active {
 
 .lt_main .breadcrumb {
   margin-top: 20px;
+}
+
+.table.table-bordered th,
+.table.table-bordered td {
+  text-align: center;
+  vertical-align: middle;
 }
