@@ -48,6 +48,27 @@
       <li class="active">分类管理</li>
       <li class="active">二级分类</li>
     </ol>
+    
+    <div class="lt_content">
+      <button class="btn btn-default btnAdd mb_20">添加分类</button>
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th width="10%">序号</th>
+          <th width="30%">一级分类名</th>
+          <th width="30%">二级分类名</th>
+          <th width="30%">二级分类LOGO</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--一个萝卜一个坑-->
+        </tbody>
+      </table>
+      
+      <div class="text-right">
+        <ul class="paginator" id="paginator" style="cursor: pointer"></ul>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -69,11 +90,75 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<div class="modal fade" tabindex="-1" id="addModal">
+  <div class="modal-dialog modal-sm">
+    <form id="form">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title">添加分类</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                <span id="dropdownText">请选择一级分类</span>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <!--一个萝卜一个坑-->
+              </ul>
+            </div>
+            <input type="hidden" name="categoryId">
+            <input type="hidden" name="hot" value="1">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="请输入二级分类" name="brandName">
+          </div>
+          <div class="form-group">
+            <label class="btn btn-default" for="fileupload">上传图片</label>
+            <input type="file" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic"
+                   style="display: none" accept="image/*">
+          </div>
+          <div class="form-group" id="imgBox">
+            <img src="./images/none.png" alt="" width="100">
+            <input type="hidden" name="brandLogo">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btnCancel" data-dismiss="modal" form="form">取消</button>
+          <button type="submit" class="btn btn-primary">添加</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </form>
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
+<script type="text/html" id="tmp">
+  {{ each rows v i }}
+  <tr>
+    <td>{{ i+1+(page-1)*size }}</td>
+    <td>{{ v.categoryName }}</td>
+    <td>{{ v.brandName }}</td>
+    <td><img src="{{ v.brandLogo?v.brandLogo:'./images/none.png' }}" alt="" height="50"></td>
+  </tr>
+  {{ /each }}
+</script>
+
+<script type="text/html" id="tpl">
+  {{ each rows v i }}
+  <li><a href="#" data-id="{{ v.id }}">{{ v.categoryName }}</a></li>
+  {{ /each }}
+</script>
 <script src="./lib/jquery/jquery.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="./js/common.js"></script>
+<script src="./js/second.js"></script>
 </body>
 </html>
