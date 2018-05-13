@@ -52,7 +52,7 @@ $(function () {
   $('#fileupload').fileupload({
     dataType: 'json',
     done: function (e, data) {
-      console.log(data);
+      // console.log(data);
       $('#imgBox img')[0].src = data.result.picAddr;
       $('[name=brandLogo]').val(data.result.picAddr);
       $('#form').data('bootstrapValidator').updateStatus('brandLogo', 'VALID');
